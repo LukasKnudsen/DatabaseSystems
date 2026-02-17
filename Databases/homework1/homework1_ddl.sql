@@ -1,0 +1,53 @@
+DROP TABLE IF EXISTS starts_in;
+DROP TABLE IF EXISTS takes;
+DROP TABLE IF EXISTS grades;
+DROP TABLE IF EXISTS Student;
+DROP TABLE IF EXISTS Course;
+DROP TABLE IF EXISTS Examiner;
+DROP TABLE IF EXISTS Semester;
+
+CREATE SEQUENCE studid START 1
+CREATE SEQUENCE examinerid START 1
+
+CREATE TABLE Semester (
+    SemID INTEGER PRIMARY KEY,
+    year INTEGER NOT NULL,
+    season TEXT NOT NULL CHECK (season IN ('Autumn', 'Spring'))
+);
+
+CREATE TABLE Student (
+    StudID INTEGER PRIMARY KEY DEFAULT nextval (studid), 
+    email VARCHAR(40) UNIQUE NOT NULL, 
+    name VARCHAR(40) NOT NULL,
+    SemID INT NOT NULL PREFERENCES Semester(SemID)
+);
+
+CREATE TABLE Course (
+    CID INTEGER PRIMARY KEY NOT NULL,
+    name VARCHAR(40) NOT NULL,
+    capacity INTEGER NOT NULL CHECK (capacity <= 300)
+);
+
+CREATE TABLE Examiner (
+    EID INTEGER PRIMARY KEY DEFAULT nextval (examinerid),
+    email VARCHAR(40) UNIQUE NOT NULL,
+    name VARCHAR(40) NOT NULL
+);
+
+
+CREATE TABLE takes (
+	takesID INT PRIMARY KEY NOT NULL,
+    StudID INTEGER REFERENCES Student(StudID),
+    CID INTEGER REFERENCES Course(CID),
+    SemesterID INTEGER REFERENCES Semester (SemID),
+    ExaminerID INTEGER REFERENCES Examiner (EID),
+    room VARCHAR(40) NOT NULL,
+    UNIQUE (StudID, CID, SemesterID, ExaminerID)
+);
+
+CREATE TABLE grades (
+    EID INTEGER REFERENCES Examiner(EID),
+    takesID INTEGER REFERENCES takes(takesID),
+    grade INT NOT NULL,
+    PRIMARY KEY (EID, takesID)
+);

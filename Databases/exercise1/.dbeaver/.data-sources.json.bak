@@ -1,0 +1,63 @@
+{
+	"folders": {},
+	"connections": {
+		"duckdb_jdbc-195003295d7-65f336e32944bc5a": {
+			"provider": "generic",
+			"driver": "duckdb_jdbc",
+			"name": "homework1.db",
+			"save-password": true,
+			"configuration": {
+				"database": "/Users/yaboi/Desktop/Introduction to Database Systems/Databases/homework1/homework1.db",
+				"url": "jdbc:duckdb:/Users/yaboi/Desktop/Introduction to Database Systems/Databases/homework1/homework1.db",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"closeIdleConnection": true,
+				"auth-model": "native"
+			}
+		},
+		"duckdb_jdbc-19542f0f1fe-73ccc284555b6fd5": {
+			"provider": "generic",
+			"driver": "duckdb_jdbc",
+			"name": "hwexercisetwo.duckdb",
+			"save-password": true,
+			"configuration": {
+				"database": "/Users/yaboi/Desktop/Introduction to Database Systems/Databases/homework2/exercise2/hwexercisetwo.duckdb",
+				"url": "jdbc:duckdb:/Users/yaboi/Desktop/Introduction to Database Systems/Databases/homework2/exercise2/hwexercisetwo.duckdb",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"closeIdleConnection": true,
+				"auth-model": "native"
+			}
+		},
+		"duckdb_jdbc-1954332e7c7-6b1591c8178ec5e0": {
+			"provider": "generic",
+			"driver": "duckdb_jdbc",
+			"name": "mydatabase.duckdb",
+			"save-password": true,
+			"configuration": {
+				"database": "/Users/yaboi/Desktop/Introduction to Database Systems/Databases/homework2/exercise1/mydatabase.duckdb",
+				"url": "jdbc:duckdb:/Users/yaboi/Desktop/Introduction to Database Systems/Databases/homework2/exercise1/mydatabase.duckdb",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"closeIdleConnection": true,
+				"auth-model": "native"
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"smart-commit": false,
+			"smart-commit-recover": true,
+			"auto-close-transactions": true,
+			"close-transactions-period": 1800,
+			"auto-close-connections": true,
+			"close-connections-period": 14400
+		}
+	}
+}

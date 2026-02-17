@@ -1,0 +1,15 @@
+DROP TABLE IF EXISTS Person;
+DROP TABLE IF EXISTS Organization;
+DROP SEQUENCE IF EXISTS seq_person_id;
+CREATE TABLE Organization (
+id INT PRIMARY KEY,
+name VARCHAR(30) NOT NULL
+);
+CREATE SEQUENCE seq_person_id START 1;
+CREATE TABLE Person (
+id INT PRIMARY KEY DEFAULT nextval('seq_person_id'),
+firstname VARCHAR(30) NOT NULL,
+lastname VARCHAR(30) NOT NULL,
+email VARCHAR(50) UNIQUE NOT NULL,
+orgId INT NOT NULL REFERENCES Organization(id)
+);
